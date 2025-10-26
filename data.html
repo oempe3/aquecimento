@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada de Dados – UTE Pernambuco III</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- PapaParse for CSV reading if needed later -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="termeletrica-pernambuco-iii-logo.png" alt="Pernambuco III" class="logo">
+    <h1>Entrada de Dados</h1>
+  </header>
+  <main class="data-entry">
+    <h2>01: Temperatura do bloco – TE402</h2>
+    <div class="file-inputs">
+      <div class="file-group">
+        <label for="group1">Ícone pasta Grupo&nbsp;01 (Anexar CSV)</label>
+        <input type="file" id="group1" accept=".csv">
+      </div>
+      <div class="file-group">
+        <label for="group2">Ícone pasta Grupo&nbsp;02 (Anexar CSV)</label>
+        <input type="file" id="group2" accept=".csv">
+      </div>
+      <div class="file-group">
+        <label for="group3">Ícone pasta Grupo&nbsp;03 (Anexar CSV)</label>
+        <input type="file" id="group3" accept=".csv">
+      </div>
+      <div class="file-group">
+        <label for="group4">Ícone pasta Grupo&nbsp;04 (Anexar CSV)</label>
+        <input type="file" id="group4" accept=".csv">
+      </div>
+    </div>
+    <!-- New inputs for diesel price and consumption -->
+    <div class="diesel-config">
+      <div class="diesel-item">
+        <label for="dieselPrice">Preço do litro do diesel (R$):</label>
+        <!-- default value 5.30 -->
+        <input type="number" id="dieselPrice" step="0.01" min="0" value="5.30">
+      </div>
+      <div class="diesel-item">
+        <label for="dieselConsumption">Consumo de diesel do aquecimento por hora (L/h):</label>
+        <!-- default value 6.30 -->
+        <input type="number" id="dieselConsumption" step="0.01" min="0" value="6.30">
+      </div>
+    </div>
+    <h2>02: Marcar quais motores estão com o aquecimento elétrico</h2>
+    <div class="heating-list" id="heatingList"></div>
+    <button id="submitData">Carregar e Plotar</button>
+  </main>
+  <footer>
+    <p>Consumo de óleo diesel por motor: <strong><span id="dieselConsumptionDisplayData">6,30</span>&nbsp;L/h</strong></p>
+    <p>Média do preço do óleo diesel – Região Metropolitana do Recife: <strong>R$&nbsp;<span id="dieselPriceDisplayData">5,30</span></strong></p>
+    <p>O&amp;M – Pernambuco&nbsp;III</p>
+    <p><a href="https://oempe3.github.io/statusV10/status.html" target="_blank">Quadro de disponibilidade&nbsp;PEIII</a></p>
+    <p><a href="index.html">Voltar ao gráfico</a></p>
+  </footer>
+  <script src="data_script.js"></script>
+</body>
+</html>

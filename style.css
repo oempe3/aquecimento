@@ -1,0 +1,349 @@
+/*
+ * Stylesheet for Pernambuco III Temperature Plotting Website
+ *
+ * This file defines the look and feel of both the main plotting page
+ * (index.html) and the data entry page (data.html). The design is
+ * intentionally modern and dark themed to evoke the feel of a
+ * contemporary dashboard application while remaining clean and
+ * responsive across desktop and mobile browsers. Colour values and
+ * layout choices can be tuned here if you wish to adjust the
+ * appearance of the site later on.
+ */
+
+/* Colour palette and global settings */
+:root {
+  --bg-color: #080808;
+  --card-bg: #121212;
+  --text-color: #f5f5f5;
+  --subtext-color: #cccccc;
+  --primary-color: #007bff;
+  --button-hover-opacity: 0.85;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-bottom: 1px solid #222;
+  flex-wrap: wrap;
+}
+
+header img.logo {
+  height: 60px;
+  margin-right: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-color);
+  flex: 1;
+  text-align: center;
+}
+
+/* Summary panel displayed in the header to the right of the title. */
+.summary-panel {
+  background: #1e1e1e;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  max-width: 280px;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.summary-panel .summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.25;
+}
+
+.summary-panel .emoji {
+  font-size: 1.2rem;
+}
+
+.summary-panel strong {
+  color: var(--primary-color);
+}
+
+/* Controls section on the main page */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.range-inputs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.range-inputs label {
+  font-size: 0.9rem;
+  color: var(--subtext-color);
+}
+
+.range-inputs input[type="datetime-local"] {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: var(--text-color);
+  padding: 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.range-inputs button {
+  padding: 0.45rem 1rem;
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.range-inputs button:hover {
+  opacity: var(--button-hover-opacity);
+}
+
+.motor-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.motor-button {
+  padding: 0.35rem 0.6rem;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  transition: transform 0.1s ease;
+}
+
+.motor-button:hover {
+  transform: translateY(-2px);
+}
+
+.motor-button.active {
+  border: 2px solid #ffffff;
+}
+
+/* Chart container */
+.chart {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 420px;
+}
+
+/* Metric cards beneath the chart */
+.metrics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.metric-card {
+  background: var(--card-bg);
+  border-radius: 6px;
+  padding: 0.8rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 4px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.metric-card img {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.8rem;
+}
+
+.metric-info {
+  flex: 1;
+}
+
+.metric-info h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  color: var(--text-color);
+}
+
+.metric-info p {
+  margin: 0.15rem 0;
+  color: var(--subtext-color);
+  font-size: 0.8rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem 0.5rem;
+  font-size: 0.85rem;
+  background: var(--card-bg);
+  color: var(--subtext-color);
+  border-top: 1px solid #222;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+footer a {
+  color: #4da3ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Message shown when no data is loaded */
+.message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1rem;
+  color: var(--subtext-color);
+}
+
+/* Data entry page specific styling */
+.data-entry {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.data-entry h2 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.file-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.file-group {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.file-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--subtext-color);
+}
+
+.file-group input[type="file"] {
+  width: 100%;
+  padding: 0.4rem;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+/* Diesel configuration section on the data entry page */
+.diesel-config {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.diesel-item {
+  flex: 1 1 240px;
+  min-width: 240px;
+}
+
+.diesel-item label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--subtext-color);
+}
+
+.diesel-item input[type="number"] {
+  width: 100%;
+  padding: 0.4rem;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+.heating-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.heating-item {
+  background: #1e1e1e;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.heating-item input {
+  margin-right: 0.3rem;
+}
+
+#submitData {
+  display: block;
+  margin: 1.2rem auto;
+  padding: 0.6rem 1.4rem;
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#submitData:hover {
+  opacity: var(--button-hover-opacity);
+}
